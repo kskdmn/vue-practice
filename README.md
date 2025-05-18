@@ -7,8 +7,16 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 ---
 
 ```bash
+# Install the latest LTS `node`
+nvm list
+nvm install --lts
+```
+
+```bash
 # Create a new project
 npm create vite@latest
+# Or use this
+npm create vue@latest
 
 # Install packages
 npm install
@@ -18,4 +26,10 @@ npm run dev
 
 # Build the source code
 npm run build
+```
+
+```bash
+# Add necessary packages
+npm install pinia
+npm install vue-router@4
 ```
