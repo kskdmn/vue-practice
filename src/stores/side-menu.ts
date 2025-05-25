@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 
-export const useMenuStore = defineStore('side-menu', {
+export const useSideMenuStore = defineStore('side-menu', {
   state: () => ({
     isCollapsed: false,
   }),

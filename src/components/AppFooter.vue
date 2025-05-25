@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <div class="icp-license">ICP License No: 京ICP备12345678号</div>
+    <div class="notes">©️2025</div>
   </footer>
 </template>
 
@@ -12,7 +12,7 @@
   text-align: center;
 }
 
-.icp-license {
+.notes {
   font-size: 0.9rem;
   color: #666;
 }

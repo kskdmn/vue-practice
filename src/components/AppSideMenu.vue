@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useMenuStore } from '../stores/side-menu';
+import { useSideMenuStore } from '../stores/side-menu';
 import { RouterLink } from 'vue-router';
 
-const menuStore = useMenuStore();
+const menuStore = useSideMenuStore();
 </script>
 
 <template>
@@ -18,11 +18,15 @@ const menuStore = useMenuStore();
 
 <style scoped>
 .side-menu {
-  width: 250px;
+  width: 200px;
   transition: width 0.3s;
   background-color: #f8f9fa;
   border-right: 1px solid #dee2e6;
   padding: 1rem;
+  /*height: 100%;*/
+  position: sticky;
+  top: 0;
+  flex-shrink: 0; /* Prevent menu from shrinking */
 }
 
 .side-menu.collapsed {

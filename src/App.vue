@@ -9,7 +9,9 @@ import AppFooter from './components/AppFooter.vue';
     <AppHeader />
     <div class="main-layout">
       <AppSideMenu />
-      <router-view />
+      <div class="main-content">
+        <router-view />
+      </div>
     </div>
     <AppFooter />
   </div>
@@ -30,5 +32,13 @@ body {
 .main-layout {
   display: flex;
   flex-grow: 1;
+  min-height: calc(100vh - 120px); /* Adjust based on header/footer height */
+  min-width: 100vw; /* Ensure full width */
+}
+
+.main-content {
+  flex: 1;
+  overflow: auto;
+  min-width: 0; /* Fixes flexbox overflow issue */
 }
 </style>

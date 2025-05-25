@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useMenuStore } from '../stores/side-menu';
+import { useSideMenuStore } from '../stores/side-menu';
 
-const menuStore = useMenuStore();
+const menuStore = useSideMenuStore();
 const user = {
   name: 'John Doe',
   avatar: 'https://via.placeholder.com/40',
