@@ -32,4 +32,5 @@ npm run build
 # Add necessary packages
 npm install pinia
 npm install vue-router@4
+npm install --save-dev @types/node
 ```
