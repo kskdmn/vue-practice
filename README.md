@@ -6,6 +6,8 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 
 ---
 
+## Commands
+
 ```bash
 # Install the latest LTS `node`
 nvm list
@@ -33,4 +35,14 @@ npm run build
 npm install pinia
 npm install vue-router@4
 npm install --save-dev @types/node
+npm install unhead # https://unhead.unjs.io/
 ```
+
+---
+
+## To Do
+
+- User login + 404 page
+- API (including proxy)
+- Theme
+- SEO (CSR, SSR, prerendering)
