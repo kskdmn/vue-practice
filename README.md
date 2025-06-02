@@ -36,12 +36,16 @@ npm install pinia
 npm install vue-router@4
 npm install --save-dev @types/node
 npm install unhead # https://unhead.unjs.io/
+
+# Free icons
+npm install @fortawesome/fontawesome-svg-core @fortawesome/vue-fontawesome @fortawesome/free-solid-svg-icons
 ```
 
 ---
 
 ## To Do
 
+- Different environments
 - User login + 404 page
 - API (including proxy)
 - Theme
