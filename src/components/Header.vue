@@ -6,6 +6,10 @@ const user = {
   name: 'John Doe',
   avatar: 'https://via.placeholder.com/40',
 };
+
+const config = {
+  envName: import.meta.env.VITE_ENV_NAME || ''
+}
 </script>
 
 <template>
@@ -14,7 +18,7 @@ const user = {
       <button @click="menuStore.toggleMenu" class="menu-toggle">
         ☰
       </button>
-      <div class="logo">My App</div>
+      <div class="logo">{{ config.envName }}</div>
     </div>
     <div class="user-info">
       <img :src="user.avatar" alt="User Avatar" class="avatar" />
