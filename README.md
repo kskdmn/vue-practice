@@ -47,5 +47,5 @@ npm install @fortawesome/fontawesome-svg-core @fortawesome/vue-fontawesome @fort
 
 - User login + 404 page
 - API (including proxy)
-- Theme
+- Theme + SCSS
 - SEO (CSR, SSR, prerendering)
