@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 import './style.css'
 import App from './App.vue'
 import router from './router'
@@ -10,6 +11,8 @@ import { faHouse, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 library.add(faHouse, faInfoCircle)
 
 const app = createApp(App)
-app.use(createPinia()).use(router)
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
+app.use(pinia).use(router)
 app.component('FontAwesomeIcon', FontAwesomeIcon)
 app.mount('#app')
