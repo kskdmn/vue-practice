@@ -1,53 +1,49 @@
-import axios, { AxiosError } from 'axios';
-import type { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
+import axios from 'axios';
+import { useAuthStore } from '../stores/auth';
 
-const config = {
-    baseUrl: import.meta.env.VITE_API_BASE_URL as string,
-    timeout: 60_000,
-}
+const axiosInstance = axios.create({
+  baseURL: import.meta.env.VITE_API_URL as string,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
-class AxiosClient {
-    private instance: AxiosInstance;
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const authStore = useAuthStore();
+    if (authStore.accessTokenValue) {
+      config.headers.Authorization = `Bearer ${authStore.accessTokenValue}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
-    constructor(config: AxiosRequestConfig) {
-        this.instance = axios.create(config);
+axiosInstance.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    const originalRequest = error.config;
+    const authStore = useAuthStore();
 
-        this.instance.interceptors.request.use(
-            (config: InternalAxiosRequestConfig) => {
-                config.headers.Authorization = `Bearer ${'test'}`;
-                return config;
-            },
-            (error: AxiosError) => {
-                return Promise.reject(error);
-            }
-        );
+    if (error.response?.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
 
-        this.instance.interceptors.response.use(
-            (response: AxiosResponse) => {
-                // Add any response interceptors here
-                return response;
-            },
-            (error: AxiosError) => {
-                return Promise.reject(error);
-            }
-        );
+      try {
+        await authStore.refreshToken();
+        if (authStore.accessTokenValue) {
+          originalRequest.headers.Authorization = `Bearer ${authStore.accessTokenValue}`;
+        }
+        return axiosInstance(originalRequest);
+      } catch (refreshError) {
+        authStore.logout();
+        return Promise.reject(refreshError);
+      }
     }
 
-    get<T>(path: string, data?: object, others = {}): Promise<AxiosResponse<T>> {
-        return this.instance.get<T>(path, { data, ...others });
-    }
-    post<T>(path: string, data?: object, others = {}): Promise<AxiosResponse<T>> {
-        return this.instance.post<T>(path, {data, ...others });
-    }
-    put<T>(path: string, data?: object, others = {}): Promise<AxiosResponse<T>> {
-        return this.instance.put<T>(path, { data, ...others });
-    }
-    delete<T>(path: string, data?: object, others = {}): Promise<AxiosResponse<T>> {
-        return this.instance.delete<T>(path, { data, ...others });
-    }
-    patch<T>(path: string, data?: object, others = {}): Promise<AxiosResponse<T>> {
-        return this.instance.patch<T>(path, { data, ...others });
-    }
-}
+    return Promise.reject(error);
+  }
+);
 
-export default new AxiosClient(config);
+export default axiosInstance; 
