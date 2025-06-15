@@ -1,15 +1,20 @@
 <script setup lang="ts">
 import { useSideMenuStore } from '../stores/side-menu';
+import { useAuthStore } from '../stores/auth';
+import { onMounted } from 'vue';
 
 const menuStore = useSideMenuStore();
-const user = {
-  name: 'John Doe',
-  avatar: 'https://via.placeholder.com/40',
-};
+const authStore = useAuthStore();
 
 const config = {
   envName: import.meta.env.VITE_ENV_NAME || ''
-}
+};
+
+onMounted(async () => {
+  if (authStore.isAuthenticated) {
+    await authStore.fetchUserInfo();
+  }
+});
 </script>
 
 <template>
@@ -20,9 +25,8 @@ const config = {
       </button>
       <div class="logo">{{ config.envName }}</div>
     </div>
-    <div class="user-info">
-      <img :src="user.avatar" alt="User Avatar" class="avatar" />
-      <span>{{ user.name }}</span>
+    <div v-if="authStore.isAuthenticated && authStore.username" class="user-info">
+      <span>{{ authStore.username }}</span>
     </div>
   </header>
 </template>

@@ -7,6 +7,7 @@ interface AuthState {
   error: string | null;
   accessTokenValue: string | null;
   refreshTokenValue: string | null;
+  username: string | null;
 }
 
 export const useAuthStore = defineStore('auth', {
@@ -16,6 +17,7 @@ export const useAuthStore = defineStore('auth', {
     error: null,
     accessTokenValue: null,
     refreshTokenValue: null,
+    username: null,
   }),
 
   actions: {
@@ -49,11 +51,26 @@ export const useAuthStore = defineStore('auth', {
       }
     },
 
+    async fetchUserInfo() {
+      if (!this.isAuthenticated) {
+        this.username = null;
+        return;
+      }
+      try {
+        const userInfo = await authService.getUserInfo();
+        this.username = userInfo.username;
+      } catch (error) {
+        this.username = null;
+        throw error;
+      }
+    },
+
     logout() {
       this.accessTokenValue = null;
       this.refreshTokenValue = null;
       this.isAuthenticated = false;
       this.error = null;
+      this.username = null;
     },
   },
 
