@@ -28,14 +28,6 @@ export const authService = {
     return response.data;
   },
 
-  getAccessToken(): string | null {
-    return null; // This is now handled by the store
-  },
-
-  isAuthenticated(): boolean {
-    return false; // This is now handled by the store
-  },
-
   async getUserInfo(): Promise<UserInfo> {
     const response = await axiosInstance.get<UserInfo>(`${API_URL}/token/info/`);
     return response.data;

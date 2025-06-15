@@ -29,6 +29,7 @@ export const useAuthStore = defineStore('auth', {
         this.accessTokenValue = response.access;
         this.refreshTokenValue = response.refresh;
         this.isAuthenticated = true;
+        await this.fetchUserInfo();
       } catch (error) {
         this.error = error instanceof Error ? error.message : 'An error occurred during login';
         throw error;

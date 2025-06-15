@@ -1,17 +1,24 @@
 <script setup lang="ts">
 import { useSideMenuStore } from '../stores/side-menu';
 import { useAuthStore } from '../stores/auth';
+import { useRouter } from 'vue-router';
 import { onMounted } from 'vue';
 
 const menuStore = useSideMenuStore();
 const authStore = useAuthStore();
+const router = useRouter();
 
 const config = {
   envName: import.meta.env.VITE_ENV_NAME || ''
 };
 
+const handleLogout = async () => {
+  authStore.logout();
+  router.push('/login');
+};
+
 onMounted(async () => {
-  if (authStore.isAuthenticated) {
+  if (authStore.isAuthenticated && !authStore.username) {
     await authStore.fetchUserInfo();
   }
 });
@@ -27,6 +34,7 @@ onMounted(async () => {
     </div>
     <div v-if="authStore.isAuthenticated && authStore.username" class="user-info">
       <span>{{ authStore.username }}</span>
+      <button @click="handleLogout" class="logout-button">Logout</button>
     </div>
   </header>
 </template>
@@ -67,5 +75,20 @@ onMounted(async () => {
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
+}
+
+.logout-button {
+  background: none;
+  border: 1px solid #666;
+  border-radius: 4px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+  background-color: #666;
+  color: white;
 }
 </style>
