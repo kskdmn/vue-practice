@@ -63,21 +63,26 @@ const handleLogin = async () => {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: #1a1a1a;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .login-box {
-  background: white;
+  background: #2d2d2d;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 400px;
+  margin: 1rem;
+  box-sizing: border-box;
 }
 
 h1 {
   text-align: center;
-  color: #333;
+  color: #4CAF50;
   margin-bottom: 2rem;
 }
 
@@ -95,15 +100,17 @@ h1 {
 
 label {
   font-weight: 500;
-  color: #555;
+  color: #e0e0e0;
 }
 
 input {
   padding: 0.75rem;
-  border: 1px solid #ddd;
+  border: 1px solid #404040;
   border-radius: 4px;
   font-size: 1rem;
   transition: border-color 0.2s;
+  background-color: #333333;
+  color: #ffffff;
 }
 
 input:focus {
@@ -127,8 +134,8 @@ input:focus {
 }
 
 .error-message {
-  background-color: #ffebee;
-  color: #c62828;
+  background-color: #ff5252;
+  color: #ffffff;
   padding: 0.75rem;
   border-radius: 4px;
   margin-bottom: 1rem;
@@ -136,12 +143,12 @@ input:focus {
 }
 
 .login-button:disabled {
-  background-color: #cccccc;
+  background-color: #666666;
   cursor: not-allowed;
 }
 
 input:disabled {
-  background-color: #f5f5f5;
+  background-color: #404040;
   cursor: not-allowed;
 }
 </style> 

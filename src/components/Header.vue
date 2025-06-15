@@ -45,8 +45,15 @@ onMounted(async () => {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #f0f0f0;
-  border-bottom: 1px solid #ddd;
+  background-color: #2d2d2d;
+  border-bottom: 1px solid #404040;
+  color: #ffffff;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
 .header-left {
@@ -58,12 +65,14 @@ onMounted(async () => {
 .logo {
   font-weight: bold;
   font-size: 1.2rem;
+  color: #4CAF50;
 }
 
 .user-info {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: #e0e0e0;
 }
 
 .avatar {
@@ -75,20 +84,22 @@ onMounted(async () => {
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
+  color: #ffffff;
 }
 
 .logout-button {
   background: none;
-  border: 1px solid #666;
+  border: 1px solid #4CAF50;
   border-radius: 4px;
   padding: 0.25rem 0.75rem;
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.2s ease;
+  color: #4CAF50;
 }
 
 .logout-button:hover {
-  background-color: #666;
+  background-color: #4CAF50;
   color: white;
 }
 </style>

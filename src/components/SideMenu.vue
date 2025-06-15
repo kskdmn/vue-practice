@@ -16,7 +16,7 @@ const menuItems = ref([
   <aside class="side-menu" :class="{ collapsed: menuStore.isCollapsed }">
     <nav>
       <p v-for="item in menuItems" :key="item.path">
-        <RouterLink :to="item.path">
+        <RouterLink :to="item.path" class="menu-link">
           <FontAwesomeIcon :icon="item.icon" class="icon" />
           <span class="text" v-show="!menuStore.isCollapsed">{{ item.text }}</span>
         </RouterLink>
@@ -27,26 +27,65 @@ const menuItems = ref([
 
 <style scoped>
 .side-menu {
-  width: 200px; /* Expanded width */
-  transition: width 0.3s ease;
-  background-color: #f8f9fa; /* Light background */
+  width: 200px;
+  transition: all 0.3s ease;
+  background-color: #2d2d2d;
+  border-right: 1px solid #404040;
+  height: calc(100vh - 60px); /* Subtract header height */
+  margin-top: 60px; /* Add margin for header */
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
 }
 
 .side-menu.collapsed {
-  width: 75px; /* Collapsed width (adjust based on icon size) */
+  width: 75px;
 }
 
-/* Hide text when collapsed */
-.side-menu.collapsed .text {
-  opacity: 0;
-  width: 0;
-  margin-left: 0;
-  transition: all 0.3s ease;
+nav {
+  padding: 1rem 0;
+}
+
+nav p {
+  margin: 0;
+  padding: 0;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.menu-link:hover {
+  background-color: #404040;
+  color: #4CAF50;
+}
+
+.menu-link.router-link-active {
+  background-color: #404040;
+  color: #4CAF50;
 }
 
 .icon {
   display: inline-block;
-  min-width: 1.25rem; /* Match icon width */
-  text-align: center; /* Center icons when collapsed */
+  min-width: 1.25rem;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.text {
+  margin-left: 1rem;
+  transition: all 0.3s ease;
+}
+
+.side-menu.collapsed .text {
+  opacity: 0;
+  width: 0;
+  margin-left: 0;
 }
 </style>

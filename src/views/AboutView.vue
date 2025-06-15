@@ -8,8 +8,27 @@
 <style scoped>
 .content {
   padding: 2rem;
-  max-width: 100%;
   width: 100%;
   box-sizing: border-box;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  min-height: calc(100vh - 120px); /* Account for header and footer */
+  margin-top: 60px; /* Account for header */
+  margin-bottom: 60px; /* Account for footer */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+h1 {
+  color: #4CAF50;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: #e0e0e0;
 }
 </style>
