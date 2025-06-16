@@ -5,6 +5,7 @@ import './style.css'
 import App from './App.vue'
 import router from './router'
 import './assets/main.css'
+import { useThemeStore } from './stores/theme'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -16,4 +17,9 @@ const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
 app.use(pinia).use(router)
 app.component('FontAwesomeIcon', FontAwesomeIcon)
+
+// Initialize theme store
+const themeStore = useThemeStore()
+themeStore.init()
+
 app.mount('#app')

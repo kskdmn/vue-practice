@@ -1,36 +1,63 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
 
-export const useThemeStore = defineStore('theme', () => {
-  const isDarkMode = ref(true)
+type ThemeColors = {
+  bgPrimary: string
+  bgSecondary: string
+  textPrimary: string
+  textSecondary: string
+  borderColor: string
+}
 
-  const toggleTheme = () => {
-    isDarkMode.value = !isDarkMode.value
-    // Update CSS variables for theme colors
-    document.documentElement.style.setProperty(
-      '--bg-primary',
-      isDarkMode.value ? '#1a1a1a' : '#ffffff'
-    )
-    document.documentElement.style.setProperty(
-      '--bg-secondary',
-      isDarkMode.value ? '#2d2d2d' : '#f5f5f5'
-    )
-    document.documentElement.style.setProperty(
-      '--text-primary',
-      isDarkMode.value ? '#ffffff' : '#2d2d2d'
-    )
-    document.documentElement.style.setProperty(
-      '--text-secondary',
-      isDarkMode.value ? '#e0e0e0' : '#666666'
-    )
-    document.documentElement.style.setProperty(
-      '--border-color',
-      isDarkMode.value ? '#404040' : '#e0e0e0'
-    )
+const THEME_COLORS: Record<'light' | 'dark', ThemeColors> = {
+  light: {
+    bgPrimary: '#ffffff',
+    bgSecondary: '#f5f5f5',
+    textPrimary: '#2d2d2d',
+    textSecondary: '#666666',
+    borderColor: '#e0e0e0'
+  },
+  dark: {
+    bgPrimary: '#1a1a1a',
+    bgSecondary: '#2d2d2d',
+    textPrimary: '#ffffff',
+    textSecondary: '#e0e0e0',
+    borderColor: '#404040'
   }
+}
 
-  return {
-    isDarkMode,
-    toggleTheme
-  }
+interface ThemeState {
+  isDarkMode: boolean | null
+}
+
+export const useThemeStore = defineStore('theme', {
+  state: (): ThemeState => ({
+    isDarkMode: null as boolean | null
+  }),
+
+  actions: {
+    init() {
+      // Set system preference only on first visit
+      if (this.isDarkMode === null) {
+        this.isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+      }
+      this.applyTheme(this.isDarkMode)
+    },
+
+    applyTheme(dark: boolean) {
+      const colors = dark ? THEME_COLORS.dark : THEME_COLORS.light
+      Object.entries(colors).forEach(([key, value]) => {
+        document.documentElement.style.setProperty(
+          `--${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`,
+          value
+        )
+      })
+    },
+
+    toggleTheme() {
+      this.isDarkMode = !this.isDarkMode
+      this.applyTheme(this.isDarkMode)
+    }
+  },
+
+  persist: true
 }) 
