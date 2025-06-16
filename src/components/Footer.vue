@@ -7,8 +7,8 @@
 <style scoped>
 .footer {
   padding: 1rem;
-  background-color: #2d2d2d;
-  border-top: 1px solid #404040;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
   text-align: center;
   width: 100%;
   position: fixed;
@@ -19,6 +19,6 @@
 
 .notes {
   font-size: 0.9rem;
-  color: #e0e0e0;
+  color: var(--text-secondary);
 }
 </style>

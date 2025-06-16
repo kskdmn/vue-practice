@@ -29,8 +29,8 @@ const menuItems = ref([
 .side-menu {
   width: 200px;
   transition: all 0.3s ease;
-  background-color: #2d2d2d;
-  border-right: 1px solid #404040;
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
   height: calc(100vh - 60px); /* Subtract header height */
   margin-top: 60px; /* Add margin for header */
   position: fixed;
@@ -56,19 +56,19 @@ nav p {
   display: flex;
   align-items: center;
   padding: 0.75rem 1.5rem;
-  color: #e0e0e0;
+  color: var(--text-secondary);
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
 .menu-link:hover {
-  background-color: #404040;
-  color: #4CAF50;
+  background-color: var(--border-color);
+  color: var(--accent-color);
 }
 
 .menu-link.router-link-active {
-  background-color: #404040;
-  color: #4CAF50;
+  background-color: var(--border-color);
+  color: var(--accent-color);
 }
 
 .icon {

@@ -63,14 +63,14 @@ const handleLogin = async () => {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #1a1a1a;
+  background-color: var(--bg-primary);
   width: 100%;
   box-sizing: border-box;
   overflow-x: hidden;
 }
 
 .login-box {
-  background: #2d2d2d;
+  background: var(--bg-secondary);
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -82,7 +82,7 @@ const handleLogin = async () => {
 
 h1 {
   text-align: center;
-  color: #4CAF50;
+  color: var(--accent-color);
   margin-bottom: 2rem;
 }
 
@@ -100,26 +100,26 @@ h1 {
 
 label {
   font-weight: 500;
-  color: #e0e0e0;
+  color: var(--text-secondary);
 }
 
 input {
   padding: 0.75rem;
-  border: 1px solid #404040;
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   font-size: 1rem;
   transition: border-color 0.2s;
-  background-color: #333333;
-  color: #ffffff;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 input:focus {
   outline: none;
-  border-color: #4CAF50;
+  border-color: var(--accent-color);
 }
 
 .login-button {
-  background-color: #4CAF50;
+  background-color: var(--accent-color);
   color: white;
   padding: 0.75rem;
   border: none;
@@ -148,7 +148,7 @@ input:focus {
 }
 
 input:disabled {
-  background-color: #404040;
+  background-color: var(--border-color);
   cursor: not-allowed;
 }
 </style> 

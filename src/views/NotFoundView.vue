@@ -15,29 +15,38 @@
 .not-found {
   text-align: center;
   padding: 4rem 2rem;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: calc(100vh - 120px);
+  margin-top: 60px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
   font-size: 6rem;
   margin: 0;
-  color: #2c3e50;
+  color: var(--accent-color);
 }
 
 h2 {
   font-size: 2rem;
   margin: 1rem 0;
-  color: #2c3e50;
+  color: var(--text-primary);
 }
 
 p {
-  color: #666;
+  color: var(--text-secondary);
   margin-bottom: 2rem;
 }
 
 .home-link {
   display: inline-block;
   padding: 0.8rem 1.5rem;
-  background-color: #42b983;
+  background-color: var(--accent-color);
   color: white;
   text-decoration: none;
   border-radius: 4px;

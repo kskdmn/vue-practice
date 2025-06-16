@@ -10,8 +10,8 @@
   padding: 2rem;
   width: 100%;
   box-sizing: border-box;
-  background-color: #1a1a1a;
-  color: #ffffff;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   min-height: calc(100vh - 120px); /* Account for header and footer */
   margin-top: 60px; /* Account for header */
   margin-bottom: 60px; /* Account for footer */
@@ -24,11 +24,11 @@
 }
 
 h1 {
-  color: #4CAF50;
+  color: var(--accent-color);
   margin-bottom: 1rem;
 }
 
 p {
-  color: #e0e0e0;
+  color: var(--text-secondary);
 }
 </style>
