@@ -1,10 +1,9 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
-import './style.css'
 import App from './App.vue'
 import router from './router'
-import './assets/main.css'
+import './assets/main.scss'
 import { useThemeStore } from './stores/theme'
 
 import { library } from '@fortawesome/fontawesome-svg-core'

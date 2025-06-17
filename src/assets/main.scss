@@ -1,0 +1,126 @@
+// Theme Variables
+$bg-primary: #1a1a1a;
+$bg-secondary: #2d2d2d;
+$text-primary: #ffffff;
+$text-secondary: #e0e0e0;
+$border-color: #404040;
+$accent-color: #4CAF50;
+
+// UI Variables
+$primary-color: #646cff;
+$primary-hover: #535bf2;
+$light-primary-hover: #747bff;
+$background-dark: #242424;
+$background-light: #ffffff;
+$text-dark: rgba(255, 255, 255, 0.87);
+$text-light: #213547;
+
+// Mixins
+@mixin button-base {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+// CSS Custom Properties
+:root {
+  // Theme variables
+  --bg-primary: #{$bg-primary};
+  --bg-secondary: #{$bg-secondary};
+  --text-primary: #{$text-primary};
+  --text-secondary: #{$text-secondary};
+  --border-color: #{$border-color};
+  --accent-color: #{$accent-color};
+
+  // Base styles
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: $text-dark;
+  background-color: $background-dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Global transitions
+* {
+  transition: background-color 0.3s ease,
+              color 0.3s ease,
+              border-color 0.3s ease;
+}
+
+// Base styles
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: Arial, sans-serif;
+}
+
+a {
+  font-weight: 500;
+  color: $primary-color;
+  text-decoration: inherit;
+  
+  &:hover {
+    color: $primary-hover;
+  }
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  @include button-base;
+  background-color: $background-dark;
+  
+  &:hover {
+    border-color: $primary-color;
+  }
+  
+  &:focus,
+  &:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+// Media queries
+@media (prefers-color-scheme: light) {
+  :root {
+    color: $text-light;
+    background-color: $background-light;
+  }
+  
+  a:hover {
+    color: $light-primary-hover;
+  }
+  
+  button {
+    background-color: #f9f9f9;
+  }
+} 

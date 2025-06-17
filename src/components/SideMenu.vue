@@ -25,7 +25,7 @@ const menuItems = ref([
   </aside>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .side-menu {
   width: 200px;
   transition: all 0.3s ease;
@@ -37,19 +37,19 @@ const menuItems = ref([
   left: 0;
   top: 0;
   z-index: 100;
-}
 
-.side-menu.collapsed {
-  width: 75px;
+  &.collapsed {
+    width: 75px;
+  }
 }
 
 nav {
   padding: 1rem 0;
-}
 
-nav p {
-  margin: 0;
-  padding: 0;
+  p {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .menu-link {
@@ -59,16 +59,16 @@ nav p {
   color: var(--text-secondary);
   text-decoration: none;
   transition: all 0.2s ease;
-}
 
-.menu-link:hover {
-  background-color: var(--border-color);
-  color: var(--accent-color);
-}
+  &:hover {
+    background-color: var(--border-color);
+    color: var(--accent-color);
+  }
 
-.menu-link.router-link-active {
-  background-color: var(--border-color);
-  color: var(--accent-color);
+  &.router-link-active {
+    background-color: var(--border-color);
+    color: var(--accent-color);
+  }
 }
 
 .icon {
@@ -83,9 +83,11 @@ nav p {
   transition: all 0.3s ease;
 }
 
-.side-menu.collapsed .text {
-  opacity: 0;
-  width: 0;
-  margin-left: 0;
+.side-menu.collapsed {
+  .text {
+    opacity: 0;
+    width: 0;
+    margin-left: 0;
+  }
 }
 </style>

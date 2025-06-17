@@ -45,7 +45,7 @@ onMounted(async () => {
   </header>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .header {
   display: flex;
   justify-content: space-between;
@@ -60,12 +60,12 @@ onMounted(async () => {
   left: 0;
   z-index: 1000;
   box-sizing: border-box;
-}
 
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  &-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
 }
 
 .logo {
@@ -102,11 +102,11 @@ onMounted(async () => {
   cursor: pointer;
   transition: all 0.2s ease;
   color: var(--accent-color);
-}
 
-.logout-button:hover {
-  background-color: var(--accent-color);
-  color: white;
+  &:hover {
+    background-color: var(--accent-color);
+    color: white;
+  }
 }
 
 .theme-toggle {
@@ -118,9 +118,9 @@ onMounted(async () => {
   padding: 0.5rem;
   margin-right: 1rem;
   transition: color 0.2s ease;
-}
 
-.theme-toggle:hover {
-  color: var(--accent-color);
+  &:hover {
+    color: var(--accent-color);
+  }
 }
 </style>

@@ -11,7 +11,7 @@
 // No additional setup needed
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .not-found {
   text-align: center;
   padding: 4rem 2rem;
@@ -51,9 +51,9 @@ p {
   text-decoration: none;
   border-radius: 4px;
   transition: background-color 0.3s;
-}
 
-.home-link:hover {
-  background-color: #3aa876;
+  &:hover {
+    background-color: #3aa876;
+  }
 }
 </style> 

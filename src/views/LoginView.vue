@@ -57,7 +57,11 @@ const handleLogin = async () => {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+$error-color: #ff5252;
+$button-hover: #45a049;
+$disabled-color: #666666;
+
 .login-container {
   display: flex;
   justify-content: center;
@@ -111,11 +115,16 @@ input {
   transition: border-color 0.2s;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-}
 
-input:focus {
-  outline: none;
-  border-color: var(--accent-color);
+  &:focus {
+    outline: none;
+    border-color: var(--accent-color);
+  }
+
+  &:disabled {
+    background-color: var(--border-color);
+    cursor: not-allowed;
+  }
 }
 
 .login-button {
@@ -127,28 +136,23 @@ input:focus {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s;
-}
 
-.login-button:hover {
-  background-color: #45a049;
+  &:hover {
+    background-color: $button-hover;
+  }
+
+  &:disabled {
+    background-color: $disabled-color;
+    cursor: not-allowed;
+  }
 }
 
 .error-message {
-  background-color: #ff5252;
+  background-color: $error-color;
   color: #ffffff;
   padding: 0.75rem;
   border-radius: 4px;
   margin-bottom: 1rem;
   text-align: center;
-}
-
-.login-button:disabled {
-  background-color: #666666;
-  cursor: not-allowed;
-}
-
-input:disabled {
-  background-color: var(--border-color);
-  cursor: not-allowed;
 }
 </style> 
