@@ -44,6 +44,7 @@ npm install @fortawesome/fontawesome-svg-core @fortawesome/vue-fontawesome @fort
 ---
 
 ## To Do
- 
+
+- Add a list page and move about to a new settings menu
 - SEO (SSG = static site generation, `npm install vite-ssg @vueuse/head`)
 - httpOnly cookie for tokens - Low priority

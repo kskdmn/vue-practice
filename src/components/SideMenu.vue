@@ -59,6 +59,8 @@ nav {
   color: var(--text-secondary);
   text-decoration: none;
   transition: all 0.2s ease;
+  height: 3.5rem; /* Add fixed height */
+  box-sizing: border-box; /* Ensure padding is included in height */
 
   &:hover {
     background-color: var(--border-color);
@@ -76,11 +78,14 @@ nav {
   min-width: 1.25rem;
   text-align: center;
   font-size: 1.1rem;
+  flex-shrink: 0; /* Prevent icon from shrinking */
 }
 
 .text {
   margin-left: 1rem;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, width 0.3s ease, margin 0.3s ease;
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflow text */
 }
 
 .side-menu.collapsed {
