@@ -1,0 +1,14 @@
+a {
+  font-weight: 500;
+  color: $primary-color;
+  text-decoration: inherit;
+  
+  &:hover {
+    color: $primary-hover;
+  }
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+} 

@@ -3,7 +3,7 @@ import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 import App from './App.vue'
 import router from './router'
-import './assets/main.scss'
+import './assets/scss/main.scss'
 import { useThemeStore } from './stores/theme'
 
 import { library } from '@fortawesome/fontawesome-svg-core'

@@ -1,0 +1,45 @@
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'base/reset';
+@import 'base/typography';
+@import 'components/buttons';
+@import 'layout/app';
+
+// CSS Custom Properties
+:root {
+  // Theme variables
+  --bg-primary: #{$bg-primary};
+  --bg-secondary: #{$bg-secondary};
+  --text-primary: #{$text-primary};
+  --text-secondary: #{$text-secondary};
+  --border-color: #{$border-color};
+  --accent-color: #{$accent-color};
+
+  // Base styles
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: $text-dark;
+  background-color: $background-dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Media queries
+@media (prefers-color-scheme: light) {
+  :root {
+    color: $text-light;
+    background-color: $background-light;
+  }
+  
+  a:hover {
+    color: $light-primary-hover;
+  }
+  
+  button {
+    background-color: #f9f9f9;
+  }
+} 

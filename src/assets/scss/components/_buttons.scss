@@ -1,0 +1,13 @@
+button {
+  @include button-base;
+  background-color: $background-dark;
+  
+  &:hover {
+    border-color: $primary-color;
+  }
+  
+  &:focus,
+  &:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+} 
