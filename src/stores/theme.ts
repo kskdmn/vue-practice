@@ -31,7 +31,7 @@ interface ThemeState {
 
 export const useThemeStore = defineStore('theme', {
   state: (): ThemeState => ({
-    isDarkMode: null as boolean | null
+    isDarkMode: null
   }),
 
   actions: {
