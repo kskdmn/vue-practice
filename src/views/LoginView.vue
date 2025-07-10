@@ -66,11 +66,12 @@ $disabled-color: #666666;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: calc(100vh - 180px); /* 考虑header(60px) + footer(60px) + margin-top(60px) */
   background-color: var(--bg-primary);
   width: 100%;
   box-sizing: border-box;
   overflow-x: hidden;
+  padding: 2rem;
 }
 
 .login-box {
@@ -80,7 +81,7 @@ $disabled-color: #666666;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 400px;
-  margin: 1rem;
+  margin: 0 auto;
   box-sizing: border-box;
 }
 

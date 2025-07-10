@@ -12,9 +12,7 @@
   box-sizing: border-box;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  min-height: calc(100vh - 120px); /* Account for header and footer */
-  margin-top: 60px; /* Account for header */
-  margin-bottom: 60px; /* Account for footer */
+  min-height: calc(100vh - 180px); /* 考虑header(60px) + footer(60px) + margin-top(60px) */
   display: flex;
   flex-direction: column;
   align-items: center;

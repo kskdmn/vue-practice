@@ -17,9 +17,7 @@
   padding: 4rem 2rem;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  min-height: calc(100vh - 120px);
-  margin-top: 60px;
-  margin-bottom: 60px;
+  min-height: calc(100vh - 180px); /* 考虑header(60px) + footer(60px) + margin-top(60px) */
   display: flex;
   flex-direction: column;
   align-items: center;

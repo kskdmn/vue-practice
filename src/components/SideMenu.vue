@@ -1,8 +1,19 @@
 <script setup lang="ts">
 import { useSideMenuStore } from '../stores/side-menu';
 import { RouterLink } from 'vue-router';
+import { watch } from 'vue';
 
 const menuStore = useSideMenuStore();
+
+// 定义事件发射器
+const emit = defineEmits<{
+  collapsedChange: [collapsed: boolean]
+}>();
+
+// 监听折叠状态变化并发射事件
+watch(() => menuStore.isCollapsed, (collapsed) => {
+  emit('collapsedChange', collapsed ?? false);
+}, { immediate: true });
 
 // TODO: This should be updated to use a dynamic list of menu items
 import { ref } from 'vue'
