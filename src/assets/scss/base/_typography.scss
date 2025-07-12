@@ -1,10 +1,12 @@
+@use '../abstracts/variables' as vars;
+
 a {
   font-weight: 500;
-  color: $primary-color;
+  color: vars.$primary-color;
   text-decoration: inherit;
   
   &:hover {
-    color: $primary-hover;
+    color: vars.$primary-hover;
   }
 }
 

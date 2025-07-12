@@ -1,27 +1,27 @@
-@import 'abstracts/variables';
-@import 'abstracts/mixins';
-@import 'base/reset';
-@import 'base/typography';
-@import 'components/buttons';
-@import 'layout/app';
+@use 'abstracts/variables' as vars;
+@use 'abstracts/mixins' as mixins;
+@use 'base/reset';
+@use 'base/typography';
+@use 'components/buttons';
+@use 'layout/app';
 
 // CSS Custom Properties
 :root {
   // Theme variables
-  --bg-primary: #{$bg-primary};
-  --bg-secondary: #{$bg-secondary};
-  --text-primary: #{$text-primary};
-  --text-secondary: #{$text-secondary};
-  --border-color: #{$border-color};
-  --accent-color: #{$accent-color};
+  --bg-primary: #{vars.$bg-primary};
+  --bg-secondary: #{vars.$bg-secondary};
+  --text-primary: #{vars.$text-primary};
+  --text-secondary: #{vars.$text-secondary};
+  --border-color: #{vars.$border-color};
+  --accent-color: #{vars.$accent-color};
 
   // Base styles
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
-  color: $text-dark;
-  background-color: $background-dark;
+  color: vars.$text-dark;
+  background-color: vars.$background-dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -31,12 +31,12 @@
 // Media queries
 @media (prefers-color-scheme: light) {
   :root {
-    color: $text-light;
-    background-color: $background-light;
+    color: vars.$text-light;
+    background-color: vars.$background-light;
   }
   
   a:hover {
-    color: $light-primary-hover;
+    color: vars.$light-primary-hover;
   }
   
   button {
